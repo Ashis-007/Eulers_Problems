@@ -4,21 +4,17 @@ using namespace std;
 
 int main()
 {
-	int sum_square = 0;
-	int square_sum = 0;
-	int diff = 0;
-	int sum = 0;
-	
-	
-	for(int i = 1; i <= 100; i++)
-	{
-		square_sum += pow(i,2);
-		sum += i;
-		sum_square = pow(sum,2);	
-	} 
-	
+	int n = 100, sum = 0;
+	int square_sum = 0, sum_square = 0;
+	int diff;
+
+	square_sum = n * (n + 1) * ((2*n) + 1)/6;
+	sum = n * (n + 1)/2;
+	sum_square = pow(sum, 2);
 	diff = sum_square - square_sum;
-	cout<<diff;
-	
-return 0;	
+
+	cout<<"The difference is: "<<diff;
+
+
+return 0;
 }
