@@ -1,30 +1,26 @@
 #include <iostream>
 using namespace std;
 
-int LCM(int a, int b)
+int gcd(int a, int b)
 {
-  int lcm;
-
-  for(lcm = min(a,b) ; lcm <= a * b; lcm++)
-      {
-        if(lcm % a == 0 && lcm % b == 0)
-          return lcm;
-      }
-
+    if (a == 0)
+        return b;
+    return gcd(b % a, a);
 }
 
 
 int main()
 {
+    long long hcf = 1, lcm = 1;
+    int i;
 
-	int num = 1;
-
-	for(int i = 2; i <= 20; i++)
+    for(i = 2; i <= 20; i++)
     {
-        num = LCM(num, i);
+        hcf = gcd(lcm, i);
+        lcm = (lcm * i) / hcf;
     }
 
-	cout<<"The lcm is: "<<num;
-
-return 0;
+    cout<<"The LCM is: "<<lcm;
+    return 0;
 }
+
